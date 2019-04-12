@@ -2,7 +2,7 @@
 Created to enable the 3D printing of plates for a [printing press] from a 2D vector graphic, this tool runs entirely in the local browser. As the name implies, it takes a [scalable vector graphics] \(SVG\) file as input, and produces an ASCII [stereo-lithography] \(STL\) file as output.
 
 ### Demo
-You can try the tool [hosted directly from github].
+Click [HERE](https://weinshel.github.io/svg-to-stl/) for a demo.
 
 There are example SVG files in [example-svg/Entypo].
 
@@ -47,7 +47,6 @@ svg-to-stl makes use of a number of other open source projects:
    [printing press]: <https://en.wikipedia.org/wiki/Printing_press>
    [scalable vector graphics]: <https://en.wikipedia.org/wiki/Scalable_Vector_Graphics>
    [stereo-lithography]: <https://en.wikipedia.org/wiki/STL_(file_format)>
-   [hosted directly from github]: <https://rawgit.com/ryancalme/svg-to-stl/master/SVGtoSTL.html>
    [example-svg/Entypo]: </example-svg/Entypo>
    [WebGL]: <https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API>
    [File API]: <http://www.w3.org/TR/FileAPI/>
