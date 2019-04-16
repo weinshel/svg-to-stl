@@ -174,6 +174,8 @@ function getExtrudedSvgObject( paths, options ) {
     // Into a mesh of triangles
     var mesh = new THREE.Mesh(extruded, options.material);
 
+
+
     // Scale to requested size (lock aspect ratio)
     var scaleTransform = new THREE.Matrix4().makeScale(
         (options.typeSize  / maxBbExtent),  // locking aspect ratio by scaling
@@ -201,6 +203,30 @@ function getExtrudedSvgObject( paths, options ) {
     // So that these attributes of the mesh are populated for later
     mesh.geometry.computeBoundingBox();
     mesh.geometry.computeBoundingSphere();
+
+    twist(mesh.geometry, options)
+
+
     return mesh;
 };
 
+function twist(geometry, options) {
+    const quaternion = new THREE.Quaternion();
+  
+    for (let i = 0; i < geometry.vertices.length; i++) {
+      // a single vertex Y position
+      const zPos = geometry.vertices[i].z;
+      const twistAmount = options.rotation || 0;
+      const upVec = new THREE.Vector3(0, 0, 1);
+  
+      quaternion.setFromAxisAngle(
+        upVec, 
+        (Math.PI / 180) * (zPos * twistAmount)
+      );
+  
+      geometry.vertices[i].applyQuaternion(quaternion);
+    }
+    
+    // tells Three.js to re-render this mesh
+    geometry.verticesNeedUpdate = true;
+}

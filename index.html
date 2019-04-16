@@ -60,7 +60,15 @@
             <label class="title"></label>
             <label class="title" for="typeDepth">Depth of Type (mm)</label>
             <div class="item-cont">
-              <input class="large" type="text" name="typeDepth" id="typeDepth" placeholder="Depth of Type (mm)" value="3"/>
+              <input class="large" type="text" name="typeDepth" id="typeDepth" placeholder="Depth of Type (mm)" value="30"/>
+              <span class="icon-place"></span>
+            </div>
+          </div>
+          <div class="element-input">
+            <label class="title"></label>
+            <label class="title" for="rotation">Rotation</label>
+            <div class="item-cont">
+              <input class="large" type="text" name="rotation" id="rotation" placeholder="Rotation" value="10"/>
               <span class="icon-place"></span>
             </div>
           </div>
@@ -98,7 +106,7 @@
             <label class="title"></label>
             <div class="column column1">
               <label>
-                <input type="checkbox" name="checkbox[]" id="wantBasePlate" value="Use Base Plate" checked/>
+                <input type="checkbox" name="checkbox[]" id="wantBasePlate" value="Use Base Plate"/>
                 <span>Use Base Plate</span>
               </label>
             </div>
@@ -238,6 +246,7 @@
         return {
             typeSize: Math.abs(Number($("input#typeSize").val())),
             typeDepth: Number($("input#typeDepth").val()),
+            rotation: Number($("input#rotation").val()),
             wantInvertedType: $("input#invertType").prop("checked"),
             svgWindingIsCW: $("input#reverseWO").prop("checked"),
             bevelEnabled: $("input#bevel").prop("checked"),
